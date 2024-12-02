@@ -1,0 +1,45 @@
+{
+  "name": "compound-key-map",
+  "version": "1.0.0",
+  "description": "A map type which supports compound keys",
+  "author": "Stephen Belanger <admin@stephenbelanger.com>",
+  "license": "MIT",
+  "type": "commonjs",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "types": "./dist/index.d.ts",
+    "require": "./dist/index.js",
+    "import": "./dist/index.mjs",
+    "default": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc --project tsconfig.json",
+    "lint": "eslint src",
+    "prepare": "npm run build",
+    "pretest": "npm run build",
+    "test": "node --test",
+    "release": "release-it"
+  },
+  "homepage": "https://github.com/qard/compound-key-map#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qard/compound-key-map.git"
+  },
+  "bugs": {
+    "url": "https://github.com/qard/compound-key-map/issues"
+  },
+  "keywords": [
+    "compound",
+    "key",
+    "map"
+  ],
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "@typescript-eslint/eslint-plugin": "^8.16.0",
+    "@typescript-eslint/parser": "^8.16.0",
+    "eslint": "^9.15.0",
+    "release-it": "^17.10.0",
+    "typescript": "^5.7.2"
+  }
+}

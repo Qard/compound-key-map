@@ -1,0 +1,28 @@
+name: release
+
+on: workflow_dispatch
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: git checkout
+        uses: actions/checkout@v4
+      - name: npm install
+        run: npm install
+      - name: initialize git user
+        run: |
+          git config --global user.name "Stephen Belanger"
+          git config --global user.email "admin@stephenbelanger.com"
+      - name: initialize npm token
+        run: npm config set --global //registry.npmjs.org/:_authToken $NPM_TOKEN
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: release
+        run: npm run release --ci
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

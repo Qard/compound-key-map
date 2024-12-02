@@ -1,0 +1,18 @@
+{
+  "git": {
+    "requireBranch": "main",
+    "requireCleanWorkingDir": true,
+    "commitMessage": "chore: release v${version}"
+  },
+  "hooks": {
+    "before:init": "npm test"
+  },
+  "github": {
+    "release": true,
+    "releaseName": "v${version}"
+  },
+  "npm": {
+    "publishArgs": ["--provenance"],
+    "publish": false
+  }
+}
